@@ -1,0 +1,10 @@
+@media(max-width:870px){
+
+    #small-row{
+        display: flex;
+    }
+    
+    #big-row{
+        display: none;
+    }
+}
