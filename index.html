@@ -2,19 +2,83 @@
 <html lang="ES-es">
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="favicon.ico" sizes="32x32">
+        <link rel="icon" href="favicon.ico" sizes="192x192">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pesebre</title>
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/animaciones.css">
         <link rel="stylesheet" href="./css/responsive.css">
+        <link rel="stylesheet" href="./css/modales.css">
         <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
         <link rel="stylesheet" href="./css/memorama.css">
     </head>
-    <body>
+    <body class="no-scroll"> 
+        <div id="modal-intro" class="modal-intro">
+            <div class="modal-contenido">
+                <div class="row">
+                    <img class="modalImg" src="./img/modal-intro.png" alt="modal">
+                </div>
+                <div class="row">
+                    <button id="btn-comenzar" class="btn-comenzar" onclick="cerrar()">Comenzar</button>
+                </div>
+            </div>
+        </div>
+        <div id="modal-juego" class="modal-intro hide-modal">
+            <div class="modal-contenedor">
+                <div class="modal-game-contenido">
+                    <div class="columnas-pesebre">
+                        <div class="columna-imagen-pesebre">
+                            <img src="./img/baltazar.png" alt="baltazar" class="modal-baltazar">
+                            <img src="./img/gaspar.png" alt="gaspar" class="modal-gaspar">
+                            <img src="./img/melchor.png" alt="melchor" class="modal-melchor">
+                            <img src="./img/maria.png" alt="maria" class="modal-maria">
+                            <img src="./img/jesus.png" alt="jesus" class="modal-jesus">
+                            <img src="./img/mula-buey.png" alt="mula-buey" class="modal-mula">
+                            <img src="./img/jose.png" alt="jose" class="modal-jose">
+                            <img src="./img/pastor.png" alt="pastor" class="modal-pastor">
+                        </div>
+                        <div class="columna-contenido">
+                            <div class="modal-titulo">Sabias que</div>
+                            <p id="texto">
+    
+                            </p>
+                            <button id="btn-juego" class="btn-comenzar" onclick="final()">Continuar</button>
+                            <img class="copo1" src="./img/copo.png">
+                            <img class="copo2" src="./img/copo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="feedback" class="modal-intro hide-modal">
+            <div class="modal-contenedor">
+                <div class="modal-game-contenido">
+                    <div class="columnas-pesebre">
+                        <div class="columna-imagen-pesebre">
+                        </div>
+                        <div class="columna-contenido">
+                            <div class="modal-titulo">Armaste tu pesebre</div>
+                            <p id="texto1">
+                                Y junto con la esperanza de la <p id="texto">
+                                    Y junto con la esperanza de la llegada del Niño Dios te deseamos de todo corazón que ese regalo que tanto has anhelado llegue a ti en esta navidad.
+                            </p>
+                            <br>
+                            <p id="texto2">
+                                Felices fiestas te desea:
+                            </p>
+                            <button id="btn-juego" class="btn-comenzar" onclick="final()">Vuelve a intentar</button>
+                            <img class="copo1" src="./img/copo.png">
+                            <img class="copo2" src="./img/copo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <audio src="./audio/intro.mp3"></audio>
         <header class="container-fluid">
             <div class="row">

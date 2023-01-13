@@ -6,6 +6,10 @@
 * {
     transition: transform 0.7s; /*todas las animaciones del documento*/
 }
+
+html {
+    height: 100vh   ;
+}
 #tablero{
     display: flex;
     flex-direction: column;
@@ -22,15 +26,13 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 40px;
-    margin-top: 10px;
+    margin-bottom: 10%;
+    margin-top: 20px;
 }
 .juego{
     width: 80%;
     padding-bottom: 80%;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
 }
 .row_board {
     display: flex;
@@ -62,6 +64,10 @@ div {
     position: relative;
 }
 
+.cardAnimation {
+    animation: zoom .5s ease backwards;
+}
+
 .tarjeta {
     position: relative;
     transform-style: preserve-3d;
@@ -84,4 +90,13 @@ div {
     left: 0;
     backface-visibility: hidden;
     overflow: hidden;
+}
+
+.none {
+    display: none;
+}
+
+.show-item {
+    animation: swing 1s .5s both ease, slideOutDown 1s ease 1.5s 1 normal forwards;
+    transform-origin: top center;
 }
