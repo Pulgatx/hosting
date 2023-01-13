@@ -1,0 +1,33 @@
+/* 
+ Author: Ing (c) Cristian David Arango Torres
+ Primer bootcamp "piscina-42" UTP sobre fullstack
+ Date: 2022/01/13
+         Technologic University of Pereira  */
+
+/* Responsive de la pagina*/
+@media(max-width:870px){
+
+    #small-row{
+        display: flex;
+    }
+    
+    #big-row{
+        display: none;
+    }
+    
+    .botonesizquierda{
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .columnas-pesebre {
+        display: flex !important;
+        flex-wrap: wrap;
+    }
+
+    .modal-game-contenido {
+        max-width: 95% !important;
+    }
+}
+
