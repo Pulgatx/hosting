@@ -1,5 +1,5 @@
  
-// Author: Ing (c) Cristian David Arango Torres
+// Author: Ing (c)  Cristian David Arango Torres
 // Primer bootcamp "piscina-42" UTP sobre fullstack
 // Date: 2022/01/13
 //         Technologic University of Pereira 
@@ -7,12 +7,11 @@
 
 let icons = [] //Variable para guardar los diferentes iconos
 let selections = [] //variable para guardar los numeros de tarjetas ya seleccionadas 
-var color = "rgb(138, 241, 127)" //color para cuando se gano
 var cont = 0; //variable para almacenar el numero de aciertos
-makeTable() //funcion para primera vez
+makeTable() //ejecucion de funcion por primera vez
 var beat = null; //variable para almacenar el audio
 
-function uploadIcons() { //cargar los iconos de las tarjetas
+function uploadIcons() { //cargar los iconos de las tarjetas a el arreglo icons
     icons = [
         '<img src="./img/parejas-001.png" alt="pareja001">',
         '<img src="./img/parejas-001.png" alt="pareja001">',
@@ -32,21 +31,21 @@ function uploadIcons() { //cargar los iconos de las tarjetas
         '<img src="./img/parejas-008.png" alt="pareja008">',
     ]
 
-    shuffle(icons);
+    shuffle(icons); //llamadoa la funcion shuffle para desordenar el arreglo icons
 }
 
-function shuffle(icons) { //mezclar el arreglo
+function shuffle(icons) { //funcion utilizada para mezclar el arreglo icons y dejar las imagenes aleatoriamente organizadas
     return icons.sort(() => Math.random() - 0.5);
 }
 
-function makeTable() { //generar la tabla
-    uploadIcons() //cargamos los iconos en el arreglo
-    selections = [] //vaciamos el arreglo
-    let row_n //variable para almacenar el contenido HTML de la fila
-    for (let j = 0; j < 4; j++) { //ciclo para las filas
-        row_n = document.getElementById(`row_n${j}`) //obtener el ID
-        let cards = [] //variable para gurdar las tarjetas
-        for (let i = 0; i < 4; i++) { //generamos 4 tarjetas por cada fila
+function makeTable() { //funcion para generar la tabla del juego mediante el ID juego
+    uploadIcons() //llamamos la funcio para cargar los iconos en el arreglo icons
+    selections = [] //vaciamos el arreglo por si tiene algo adentro
+    let row_n //variable para almacenar el contenido HTML de la fila del juego
+    for (let j = 0; j < 4; j++) { //ciclo para recorrer las filas y guardar las cartas
+        row_n = document.getElementById(`row_n${j}`) //obtener el ID de cada una de las filas
+        let cards = [] //variable para gurdar el codigo de las tarjetas 
+        for (let i = 0; i < 4; i++) { //ciclo para generar cuatro tarjetas por cada una de las filas
             cards.push(`
                 <div class="area-tarjeta" onclick="selectionCards(${(j * 4) + i})">
                     <div class="tarjeta none" id="tarjeta${(j * 4) + i}">
@@ -82,16 +81,16 @@ function makeTable() { //generar la tabla
 function selectionCards(i) {
     let cards = document.getElementById("tarjeta" + i) //obtiene el contenido de la etiqueta con el ID
     if (cards.style.transform != "rotateY(180deg)") { //sino esta volteada
-        cards.style.transform = "rotateY(180deg)" //la voltea
+        cards.style.transform = "rotateY(180deg)" //cambia el estilo y la voltea
         selections.push(i) //pone el numero de la tarjeta en el arreglo selections
     }
     if (selections.length == 2) { //cuando esten dos seleccionadas
-        comparationCards(selections) //las deseleccionamos
+        comparationCards(selections) //las comparamos con la funcion comparationCards
         selections = [] //reiniciamos las tarjetas seleccionadas
     }
 }
 
-function comparationCards(selections) {
+function comparationCards(selections) { //funcion utilizada para comparar las cartas, reproducir los audios y llamar los modales
     setTimeout(() => { //setTimeout es para darle tiempo
         let backFace1 = document.getElementById("trasera" + selections[0]) //obtengo el contenido de la parte trasera de la carta
         let backFace2 = document.getElementById("trasera" + selections[1]) //obtengo el contenido de la parte trasera de la carta

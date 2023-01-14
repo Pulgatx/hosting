@@ -1,9 +1,10 @@
 /* 
- Author: Ing (c) Cristian David Arango Torres
+ Author: Ing (c)  Cristian David Arango Torres
  Primer bootcamp "piscina-42" UTP sobre fullstack
  Date: 2022/01/13
          Technologic University of Pereira  */
 
+/* estos efectos hacen que la opacidad de los botones suba al poner el cursos encima */
 .contactenos:hover{
     opacity: 100%;
     transition: 0.5s;
@@ -21,8 +22,19 @@
     opacity: 100%;
     transition: 0.5s;
 }
+/* -------------------------------------------------------------- */
 
-/* animacion copo de nieve */
+/* este efecto hace que los botones de los modales hagan un efecto de presion al poner el cursos encima */
+.btn-comenzar:hover,
+.btn-juego:hover,
+.btn-modal:hover,
+.btn-final:hover{
+    transform: translateY(3px);
+    box-shadow: 0 4px 0 1px #d77c0e, 0 3px 0 1px #d77c0e, 0 2px 0 1px #d77c0e, 0 1px 0 1px #d77c0e, 0 0px 0 1px #d77c0e;
+    cursor:pointer;
+}
+
+/* animacion para que el copo de nieve del modal gire en efecto de aspas*/
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -34,7 +46,9 @@
 }
 /* ------------------------------ */
 
-/* animacion copo de quitar sobreposicion*/
+/* animaciones para quitar la superposicion del modal, al encontrar una pareja se quita la cubierta*/
+
+/* esta animacion hace que la cubierta se agite para posteriormente deslizarla y mostrar el fondo */
 @keyframes swing {
     20% {
         transform: rotate3d(0, 0, 1, 15deg);
@@ -57,6 +71,7 @@
     }
 }
 
+/* esta animacion hace que la cubierta se deslice hacia abajo y desaparezca para dejar ver el fondo */
 @keyframes slideOutDown {
     0% {
         transform: translateY(0);
@@ -70,7 +85,7 @@
 
 /* ----------------------------------------- */
 
-/* Animacion entrada de cartas*/
+/* Animacion que pone las cartas al inicio, estas se muestran una por una por debajo del modal del inicio*/
 @keyframes zoom {
     0% {
         transform: scale(1);
@@ -86,7 +101,7 @@
 }
 /* ----------------------------------------- */
 
-/* Animacion de rebote*/
+/* Animacion de rebote, esta animacion hace que el modal de entrada haga un efecto de rebote para posteriormente dejarlo fijo*/
 @keyframes bounceIn {
 
     0%,
@@ -126,3 +141,16 @@
     }
 }
 /* ----------------------------------------- */
+
+/* animacion utilizada para deslizar el contenido del modal y hacer el efecto de desvanecido en la entrada */
+@keyframes entraModal {
+    0% {
+      transform: translateY(-60%);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

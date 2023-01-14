@@ -1,5 +1,5 @@
 <!-- 
-Author: Ing (c) Cristian David Arango Torres
+ Author: Ing (c)  Cristian David Arango Torres
 Primer bootcamp "piscina-42" UTP sobre fullstack
 Date: 2022/01/13
         Technologic University of Pereira 
@@ -29,20 +29,24 @@ Date: 2022/01/13
 </head>
 
 <body class="no-scroll">
-    <!-- Modal del inicio -->
+    <!-- Modal del inicio (modal que se ejecuta al iniciar la pagina) -->
     <div id="modal-intro" class="modal-intro">
-        <div class="modal-contenido">
-            <div class="row">
-                <img class="modalImg" src="./img/modal-intro.png" alt="modal">
-            </div>
-            <div class="row">
-                <button id="btn-comenzar" class="btn-comenzar" onclick="cerrar()">Comenzar</button>
+        <!-- modal-intro es una clase que comparten todos los modales para aparecer sobre toda la pagina -->
+        <div class="modal-container">
+            <div class="modal-contenido">
+                <div class="row">
+                    <img class="modalImg" src="./img/modal-intro.png" alt="modal">
+                </div>
+                <div class="row_btn">
+                    <button id="btn-comenzar" class="btn-comenzar introduccion__btnComenzar"
+                        onclick="cerrar()">Comenzar</button>
+                </div>
             </div>
         </div>
     </div>
     <!-- ---------------------------- -->
 
-    <!-- Modal del juego -->
+    <!-- Modal del juego (modal que se ejecuta cada vez que se encuentra una pareja correcta)-->
     <div id="modal-juego" class="modal-intro hide-modal">
         <div class="modal-contenedor">
             <div class="modal-game-contenido">
@@ -62,13 +66,14 @@ Date: 2022/01/13
                     <!-- Columna derecha (Contenido) -->
                     <div class="columna-contenido">
                         <div class="modal-titulo">Sabias que</div>
-                        <p id="texto">
+                            <p id="texto" class="modalText">
 
-                        </p>
-                        <button id="btn-juego" class="btn-comenzar" onclick="final()">Continuar</button>
+                            </p>
                         <img class="copo1" src="./img/copo.png">
                         <img class="copo2" src="./img/copo.png">
+                        <button id="btn-juego" class="btn-modal" onclick="final()">Continuar</button>
                     </div>
+                    
                     <!-- ---------------------------- -->
                 </div>
             </div>
@@ -76,13 +81,13 @@ Date: 2022/01/13
     </div>
     <!-- ---------------------------------- -->
 
-    <!-- Modal final -->
+    <!-- Modal final (modal que se ejecuta al final de el memorama (cuando ya se termino de encontrar todas las parejas)) -->
     <div id="feedback" class="modal-intro hide-modal">
         <div class="modal-contenedor">
             <div class="modal-game-contenido">
                 <div class="columnas-pesebre">
                     <div class="columna-imagen-pesebre-final">
-                        <img class="imgFeedback" src="./img/escena-pesebre.png" alt="Pesebre">
+                        <img class="imgFeedback" src="../img/escena-pesebre.png" alt="Pesebre">
                     </div>
                     <!-- Columna derecha (contenido) -->
                     <div class="columna-contenido">
@@ -92,14 +97,11 @@ Date: 2022/01/13
                             Y junto con la esperanza de la llegada del Niño Dios te deseamos de todo corazón que ese
                             regalo que tanto has anhelado llegue a ti en esta navidad.
                         </p>
-                        <br>
                         <p id="texto2">
                             Felices fiestas te desea:
-                            <img src="img\logoEscuelDidactica.png" width="160px" height="28px" alt="logo">
+                            <img class="logoFeedback" src="img\logoEscuelDidactica.png" alt="logo">
                         </p>
-                        <button id="btn-juego" class="btn-comenzar" onclick="final()">Vuelve a intentar</button>
-                        <img class="copo1" src="./img/copo.png">
-                        <img class="copo2" src="./img/copo.png">
+                        <button id="btn-final" class="btn-final" onclick="final()">Vuelve a intentar</button>
                     </div>
                     <!-- -------------------------- -->
                 </div>
@@ -115,7 +117,7 @@ Date: 2022/01/13
                     <a class="btnShareWhatsApp"
                         href="whatsapp://send?text=https://www.escueladidactica.com/navidad/2022"
                         data-action="share/whatsapp/share"><img src="img/whatsapp.svg"></a>
-                    <a class="btnShareWhatsApp" onclick="copy()">
+                    <a onclick="copy()">
                         <img src="img/link.svg" title="Copiar el link">
                     </a>
                 </div>
@@ -125,7 +127,7 @@ Date: 2022/01/13
     <!-- ----------------------------- -->
     <audio src="./audio/intro.mp3"></audio>
 
-    <!-- cabecera (logo, titulo y parrafo) -->
+    <!-- cabecera, esta cabecera contiene el logo, titulo y parrafo que se muestran en la parte superior de la pagina -->
     <header class="container-fluid">
         <div class="row">
             <div class="headerLogo col-md-3 d-flex justify-content-center">
@@ -148,7 +150,7 @@ Date: 2022/01/13
     </header>
     <!-- ----------------------------------- -->
 
-    <!-- Principal (Tablero de juego) -->
+    <!-- Principal (Tablero de juego), aca se encuentra todo el contenido de el juego del memorama (estructura, cartas, tablero, caras) -->
     <main class="mainContent">
         <div class="contenedorJuego">
             <div class="juego">
@@ -170,8 +172,35 @@ Date: 2022/01/13
         </div>
     </main>
     <!-- ---------------------------- -->
+    
+    <div class="separador"></div>
+    <div class="footerED__shared">
 
-    <!-- Pie de pagina (botones de compartir) -->
+        <span class="footerED__sharedText">Compartir</span>
+        <!-- Botones para compartir en redes sociales -->
+        <a href="https://twitter.com/intent/tweet?text=&amp;url=https://www.escueladidactica.com/navidad/2022"
+            target="_blank"><img src="img/sharedTwitter.png" title="Compartir en Twitter"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.escueladidactica.com/navidad/2022&amp;t="
+            target="_blank"><img src="img/sharedFacebook.png" title="Compartir en Facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.escueladidactica.com/navidad/2022"
+            target="_blank"><img src="img/sharedLinkedin.png" title="Compartir en Linkedin"></a>
+        <a class="btnShareWhatsApp" href="whatsapp://send?text=https://www.escueladidactica.com/navidad/2022"
+            data-action="share/whatsapp/share"><img src="img/sharedWhastApp.png"></a>
+        <a onclick="copy()"><img src="img\shared.png" alt="copy"></a>
+        </button>
+
+    </div>
+    <div class="separador"></div>
+
+    <div class="footerED__infoMensajeLogoMovil">Somos
+        <a href="https://www.escueladidactica.com/" target="_blank"><img class="footerED__infoMensajeLogoImg"
+                src="./img/logoEscuelDidactica.png" alt="Escuela Didáctica">
+        </a> y te
+        ayudamos a transformar el aprendizaje en experiencias memorables.
+    </div>
+
+    <!-- Pie de pagina (botones de compartir), aca se encuentran las 2 versiones de el pie de pagina
+    una creada para pantallas pequeñas y otra creada para pantallas grandes -->
     <footer>
         <div class="container-fluid">
             <div id="big-row" class="row"> <!-- Pie de pagina cuando la pantalla es de tamaño grande -->
@@ -220,8 +249,8 @@ Date: 2022/01/13
     </footer>
     <!-- ------------------------------- -->
 
-
-    <!-- Botones fijos de la izquierda -->
+    <!-- Botones fijos de la izquierda, aca se encuentran los botones que se encuentran anclados en la parte izquierda
+    botones de compartir y un boton para copiar el link de la pagina web-->
     <div class="botonesizquierda">
 
         <a class="btn2-circulo"
@@ -239,8 +268,7 @@ Date: 2022/01/13
         <a class="btn2-circulo" onclick="copy()"><img src="img\shared.png" alt="copy"></a>
 
     </div>
-    <!-- --------------------------
-         -->
+    <!-- -------------------------- -->
     <script src="js/script.js"></script>
     <script src="js/memo.js"></script>
 </body>
